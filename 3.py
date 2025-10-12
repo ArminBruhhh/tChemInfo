@@ -17,7 +17,7 @@ import os , subprocess
 
 ethanol = Chem.MolFromSmiles("CCO")
 
-Draw.MolToFile(ethanol, "2.png", size=(300, 300))
+Draw.MolToFile(ethanol, "pics/2.png", size=(300, 300))
 
 # subprocess.run(["xdg-open", os.path.abspath("2.png")])
 
@@ -76,5 +76,5 @@ mol_list = [Chem.MolFromSmiles(x) for x in smiles_string]
 print (mol_list) 
 
 for i, mol in enumerate(mol_list, start=4):
-    Draw.MolToFile(mol, f"{i}.png", size=(300, 300))
+    Draw.MolToFile(mol, f"pics/{i}.png", size=(300, 300))
 

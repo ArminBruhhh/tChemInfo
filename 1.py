@@ -15,7 +15,7 @@ mol = Chem.MolFromSmiles("c1ccccc1") #from smiles data extractions
 # print([mol])
 # Draw.MolToFile(mol, "1.png", size=(300, 300))
 # import subprocess, os
-# subprocess.run(["xdg-open", os.path.abspath("1.png")])
+# subprocess.run(["xdg-open", os.path.abspath("pics/1.png")])
 
 
 
