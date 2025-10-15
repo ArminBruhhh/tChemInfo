@@ -19,7 +19,7 @@ ethanol = Chem.MolFromSmiles("CCO")
 
 Draw.MolToFile(ethanol, "pics/2.png", size=(300, 300))
 
-# subprocess.run(["xdg-open", os.path.abspath("2.png")])
+# subprocess.run(["xdg-open", os.path.abspath("pics/2.png")])
 
 
 
