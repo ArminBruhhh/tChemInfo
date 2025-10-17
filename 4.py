@@ -7,6 +7,11 @@ from PIL import Image
 import io
 
 
+import pandas as pd
+from rdkit.Chem.Draw import MolsToGridImage
+
+import mols2grid
+
 import os , subprocess
 
 
@@ -59,3 +64,17 @@ pil_img = Image.open(io.BytesIO(img_bytes))
 # # show and save
 # pil_img.show()
 # pil_img.save("pics/19.png")
+
+
+
+# df = pd.read_csv("https://raw.githubusercontent.com/PatWalters/practical_cheminformatics_tutorials/main/data/smarts_test.smi", 
+#                  sep=" ", 
+#                  names=["SMILES", "Name"])
+
+# # Create and save the grid
+# grid = mols2grid.MolGrid(df, subset=["img", "Name"])
+# grid.save("molecules_grid.html")
+
+# print("Grid saved as 'molecules_grid.html'")
+# # Open in default browser
+# subprocess.run(["xdg-open", "molecules_grid.html"])
