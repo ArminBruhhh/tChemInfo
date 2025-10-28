@@ -58,3 +58,6 @@ print(df)
 
 df_ro5_ok = df.query("mw <= 500 and logp <= 5 and hbd <= 5 and hba <= 10")
 # print(len(df_ro5_ok))
+
+
+# still some left 

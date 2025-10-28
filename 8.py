@@ -6,6 +6,10 @@ from rdkit.Chem import EnumerateStereoisomers
 from rdkit.Chem.MolStandardize import rdMolStandardize
 import subprocess , os
 
+
+
+
+
 import mols2grid
 
 
@@ -29,10 +33,21 @@ data = {
 }
 df = pd.DataFrame(data)
 
-grid = mols2grid.MolGrid(df, subset=["img", "Name", "SMILES"])
-grid.save("two_grid.html")
+# grid = mols2grid.MolGrid(df, subset=["img", "Name", "SMILES"])
+# grid.save("two_grid.html")
 
-print("Grid saved as 'two_grid.html'")
-# Open in default browser
-subprocess.run(["xdg-open", "two_grid.html"])
+# print("Grid saved as 'two_grid.html'")
+# # Open in default browser
+# subprocess.run(["xdg-open", "two_grid.html"])
+# # still some left
 
+
+
+mol_1_isomer_list = [x for x in EnumerateStereoisomers.EnumerateStereoisomers(mol_1)]
+print(mol_1_isomer_list)
+
+
+
+
+img = MolsToGridImage(mol_1_isomer_list)
+img.save("pics/24-stereoisomers.png")

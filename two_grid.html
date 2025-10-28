@@ -1128,7 +1128,7 @@ hr {
             // list.js
 var listObj = new List('mols2grid', {
     listClass: 'm2g-list',
-    valueNames: [{data: ['mols2grid-id']}, 'data-Molecule', 'data-Name', 'data-mols2grid-id', 'data-SMILES', 'data-img', 'data-mols2grid-id-display', {attr: 'data-content', name: 'm2g-tooltip'}],
+    valueNames: [{data: ['mols2grid-id']}, 'data-SMILES', 'data-Name', 'data-mols2grid-id', 'data-Molecule', 'data-img', 'data-mols2grid-id-display', {attr: 'data-content', name: 'm2g-tooltip'}],
     item: '<div class="m2g-cell" data-mols2grid-id="0" tabindex="0"><div class="m2g-cb-wrap"><input type="checkbox" tabindex="-1" class="position-relative float-left cached_checkbox"><div class="m2g-cb"></div><div class="data-mols2grid-id-display"></div></div><div class="m2g-cell-actions"><div class="m2g-info">i</div></div><a class="data data-img"></a><div class="data data-Molecule" style="display: none;"></div><div class="data data-Name" style="display: none;"></div><div class="data data-SMILES" style="display: none;"></div><div class="m2g-tooltip" data-toggle="popover" data-content="."></div></div>',
     page: 24,
     pagination: {
@@ -1139,7 +1139,7 @@ var listObj = new List('mols2grid', {
     },
 });
 listObj.remove("mols2grid-id", "0");
-listObj.add([{"data-Molecule": "\ud83e\udd37\u200d\u2642\ufe0f", "data-Name": "Stereoisomer 1", "mols2grid-id": 0, "data-SMILES": "F[C@](Cl)(Br)c1ccc(cc1)C(F)(Cl)Br", "data-img": null, "data-mols2grid-id-display": 0, "m2g-tooltip": "<strong>Molecule</strong>: <span class=\"copy-me\"><rdkit.Chem.rdchem.Mol object at 0x709fe1388ba0></span><br><strong>Name</strong>: <span class=\"copy-me\">Stereoisomer 1</span><br><strong>SMILES</strong>: <span class=\"copy-me\">F[C@](Cl)(Br)c1ccc(cc1)C(F)(Cl)Br</span>"}, {"data-Molecule": "\ud83e\udd37\u200d\u2642\ufe0f", "data-Name": "Stereoisomer 2", "mols2grid-id": 1, "data-SMILES": "F[C@@](Cl)(Br)c1ccc(cc1)C(F)(Cl)Br", "data-img": null, "data-mols2grid-id-display": 1, "m2g-tooltip": "<strong>Molecule</strong>: <span class=\"copy-me\"><rdkit.Chem.rdchem.Mol object at 0x709fe1388430></span><br><strong>Name</strong>: <span class=\"copy-me\">Stereoisomer 2</span><br><strong>SMILES</strong>: <span class=\"copy-me\">F[C@@](Cl)(Br)c1ccc(cc1)C(F)(Cl)Br</span>"}]);
+listObj.add([{"data-SMILES": "F[C@](Cl)(Br)c1ccc(cc1)C(F)(Cl)Br", "data-Name": "Stereoisomer 1", "mols2grid-id": 0, "data-Molecule": "\ud83e\udd37\u200d\u2642\ufe0f", "data-img": null, "data-mols2grid-id-display": 0, "m2g-tooltip": "<strong>Molecule</strong>: <span class=\"copy-me\"><rdkit.Chem.rdchem.Mol object at 0x7539b5994ba0></span><br><strong>Name</strong>: <span class=\"copy-me\">Stereoisomer 1</span><br><strong>SMILES</strong>: <span class=\"copy-me\">F[C@](Cl)(Br)c1ccc(cc1)C(F)(Cl)Br</span>"}, {"data-SMILES": "F[C@@](Cl)(Br)c1ccc(cc1)C(F)(Cl)Br", "data-Name": "Stereoisomer 2", "mols2grid-id": 1, "data-Molecule": "\ud83e\udd37\u200d\u2642\ufe0f", "data-img": null, "data-mols2grid-id-display": 1, "m2g-tooltip": "<strong>Molecule</strong>: <span class=\"copy-me\"><rdkit.Chem.rdchem.Mol object at 0x7539b5994430></span><br><strong>Name</strong>: <span class=\"copy-me\">Stereoisomer 2</span><br><strong>SMILES</strong>: <span class=\"copy-me\">F[C@@](Cl)(Br)c1ccc(cc1)C(F)(Cl)Br</span>"}]);
 
 
 // filter
