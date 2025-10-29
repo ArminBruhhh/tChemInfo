@@ -5,7 +5,7 @@ from tqdm.auto import tqdm
 from rdkit.Chem import rdDepictor
 import mols2grid
 
-
+import os , subprocess
 
 rdDepictor.SetPreferCoordGen(True)
 pd.options.display.float_format = '{:,.2f}'.format
@@ -59,5 +59,54 @@ print(df)
 df_ro5_ok = df.query("mw <= 500 and logp <= 5 and hbd <= 5 and hba <= 10")
 # print(len(df_ro5_ok))
 
+df['ro5_ok'] = (df.mw <= 500) & (df.logp <=5) & (df.hbd <= 5) & (df.hba <= 10)
 
-# still some left 
+
+
+
+
+# df.to_csv("caluDF.csv", index=False)
+# print("✅ Saved as 'caluDF.csv'")
+
+
+
+
+# cluster the molecules
+cluster_list = dm.cluster_mols(df.mol)
+# create a list to hold the cluster ids, which we will add to the dataframe
+cluster_idx = [-1] * len(df)
+for i,cluster in enumerate(tqdm(cluster_list[0])):
+    # align the structures for each cluster using Bemis Murcko frameworks
+    dm.align.auto_align_many([df.mol.values[x] for x in cluster],copy=False,partition_method='scaffold')
+    # add the cluster id to cluster_idx
+    for c in cluster:
+        cluster_idx[c] = i
+# add a column with cluster ids to the dataframe
+df['cluster'] = cluster_idx
+
+
+cluster_sample_df = df.sort_values("cluster").drop_duplicates("cluster").copy()
+# print(cluster_sample_df.head())
+
+
+
+
+cluster_count_df = df.cluster.value_counts().to_frame().reset_index()
+cluster_count_df.columns = ["cluster","count"]
+cluster_sample_df = cluster_sample_df.merge(cluster_count_df,on="cluster")
+print(cluster_sample_df.head())
+
+
+
+# df.to_csv("clusDF.csv", index=False)
+# print("✅ Saved as 'clusDF.csv'")
+
+
+
+
+grid1 = mols2grid.MolGrid(cluster_sample_df,mol_col="mol", subset=["img","cluster","count"])
+grid1.save("clus_grid.html")
+
+print("Grid saved as 'clus_grid.html'")
+# Open in default browser
+subprocess.run(["xdg-open", "clus_grid.html"])
